@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="VadView">
+        <attr name="waveWidth" format="dimension" />
+        <attr name="waveColor" format="color" />
+        <attr name="pointTotal" format="integer" />
+        <attr name="accuracy" format="integer"></attr>
+    </declare-styleable>
+</resources>

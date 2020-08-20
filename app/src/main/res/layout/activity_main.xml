@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.anthonyh.recordshow.MainActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:text="音频保存在/sdcard/recordFile/路径下面"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    <RadioGroup
+        android:layout_marginTop="20dp"
+        android:id="@+id/channel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/mono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="单声道" />
+
+        <RadioButton
+            android:id="@+id/sreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="双声道" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/fileNameEd"
+        android:layout_below="@id/channel"
+        android:hint="文件名(不要后缀)"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fileNameEd"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:id="@+id/wavContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.anthonyh.recordshow.widget.VadView
+                android:id="@+id/wav1"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                app:accuracy="1"
+                app:pointTotal="80000"
+                app:waveColor="@color/colorAccent"
+                app:waveWidth="1px" />
+
+            <com.anthonyh.recordshow.widget.VadView
+                android:id="@+id/wav2"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginTop="10dp"
+                app:accuracy="1"
+                app:pointTotal="80000"
+                app:waveColor="@color/colorAccent"
+                app:waveWidth="1px" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/recordButton"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:onClick="recordClick" />
+
+        <Button
+            android:id="@+id/startLoc"
+            android:text="查看文件"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:onClick="startLocClick" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
